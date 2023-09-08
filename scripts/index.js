@@ -1,3 +1,4 @@
+import '../styles/styles.css';
 // 초기에 모든 섹션을 숨깁니다.
 document.querySelectorAll('.section').forEach(function(section) {
     section.style.display = 'none';
