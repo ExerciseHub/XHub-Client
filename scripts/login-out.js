@@ -1,3 +1,5 @@
+import '../styles/styles.css';
+
 // 페이지 로딩 시 accessToken이 존재하는지 확인하여 isLoggedIn 값을 설정
 if (localStorage.getItem('accessToken')) {
   isLoggedIn = true;

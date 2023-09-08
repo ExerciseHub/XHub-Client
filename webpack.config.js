@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = { 
     mode: "development", 
-    entry: "./scripts/index.js", 
+    entry: {
+        main: './scripts/index.js',
+        login: './scripts/login-out.js',
+    },
     output: { 
         path: path.resolve(__dirname, 'dist'), 
         filename: "bundle.js" 
@@ -17,6 +20,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
+            filename: 'auth/login.html',
+            chunks: ['login'],
         }),
     ],
     module: { 
