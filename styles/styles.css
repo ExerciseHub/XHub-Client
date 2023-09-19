@@ -110,9 +110,10 @@ background-color: #0056b3;
 /* meeting-list */
 /* Meeting List */
 .meeting-item {
-    border: 1px solid #ddd;
+    border: 5px solid #ddd;
     margin-bottom: 10px;
     padding: 10px;
+    width: 100%;
 }
 
 .meeting-item h2 {
@@ -126,6 +127,49 @@ background-color: #0056b3;
 .join-btn, .leave-btn {
     margin-top: 10px;
 }
+
+.category, .location, .status {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category:hover, .location:hover {
+    background-color: #ddd;
+}
+
+.meeting-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* meeting-detail */
+.category-btn, .gender-limit-btn, .location-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 2px solid #333;
+    box-shadow: 3px 3px 3px #aaa;
+    transition: 0.2s;
+}
+.category-btn:hover, .gender-limit-btn:hover, .location-btn:hover {
+    box-shadow: 1px 1px 1px #aaa;
+    transform: translate(2px, 2px);
+}
+
+/* members 스타일링 */
+#meeting_container div span {
+    display: block;
+    margin: 5px 0;
+}
+
+
+
 
 /* profile_edit */
 #profileForm {
@@ -194,4 +238,13 @@ background-color: #0056b3;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px 0;
+}
+
+
+#chat_container{
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 20px 10px;
+    height : 300px;
+    width : 500px;
 }
