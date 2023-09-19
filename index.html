@@ -1,12 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>운동 매칭 서비스</title>
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- webpack -->
-    <script src="bundle.js"></script>
 </head>
 <body>
     <h1><a href="./index.html"></a>운동 매칭 서비스</h1>
@@ -23,12 +20,15 @@
         <a href="friend/friend.html" onclick="showSection('playerList')">친구 목록</a>
     </div>
 
-
     <!-- 자바스크립트 import 목록 -->
-    <script src="scripts/login-out.js"></script>
-    <script src="scripts/index.js"></script>
-    <script src="playerList/playerList.js"></script>
-    <script src="friend/friend.js"></script>
+    <script type="module">
+        import { showSection } from './scripts/index.js';
+        
+        window.showSection = showSection;
+    </script>
+    <script type="module" src="scripts/login-out.js"></script>
+    <script type="module" src="playerList/playerList.js"></script>
+    <script type="module" src="friend/friend.js"></script>
     <script>
         const btn = document.getElementById('loginBtn');
 

@@ -1,0 +1,21 @@
+{
+  "name": "xhub-client",
+  "version": "1.0.0",
+  "description": "- [배포사이트](https://aminsc.github.io/XHub-Client/)\r - 54.248.217.183",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^4.4.9"
+  },
+  "dependencies": {
+    "axios": "^1.5.0"
+  }
+}

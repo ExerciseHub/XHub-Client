@@ -1,4 +1,6 @@
-import '../styles/styles.css';
+import axios from 'axios';
+
+let isLoggedIn;
 
 // 페이지 로딩 시 accessToken이 존재하는지 확인하여 isLoggedIn 값을 설정
 if (localStorage.getItem('accessToken')) {
@@ -7,32 +9,29 @@ if (localStorage.getItem('accessToken')) {
   isLoggedIn = false;
 }
 
-function updateButtonVisibility() {
+export function updateButtonVisibility() {
   const loginBtn = document.getElementById('loginBtn');
   const signupBtn = document.getElementById('signupBtn');
   const logoutBtn = document.getElementById('logoutBtn');
   const profileBtn = document.getElementById('profileBtn');
 
   if (isLoggedIn) {
-      loginBtn.style.display = 'none';
-      signupBtn.style.display = 'none';
-      logoutBtn.style.display = 'inline';
-      profileBtn.style.display = 'inline';
+    loginBtn.style.display = 'none';
+    signupBtn.style.display = 'none';
+    logoutBtn.style.display = 'inline';
+    profileBtn.style.display = 'inline';
   } else {
-      loginBtn.style.display = 'inline';
-      signupBtn.style.display = 'inline';
-      logoutBtn.style.display = 'none';
-      profileBtn.style.display = 'none';
+    loginBtn.style.display = 'inline';
+    signupBtn.style.display = 'inline';
+    logoutBtn.style.display = 'none';
+    profileBtn.style.display = 'none';
   }
 }
 
 window.addEventListener('load', function() {
   updateButtonVisibility(); // 페이지 로드 시 버튼 상태 업데이트
-
 });
 
-
-// 세션 만료 처리
 async function handleResponseError(error) {
   if (error.response.status === 401) {
     alert('세션이 만료되었습니다. 다시 로그인해주세요.');
@@ -45,53 +44,50 @@ async function handleResponseError(error) {
   }
 }
 
-// 로그아웃 함수
-async function logout() {
+export async function logout() {
   try {
-      const response = await axios.delete('http://localhost/player/logout/', {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-          }
-      });
+    const response = await axios.delete('http://localhost/player/logout/', {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    });
 
-      if (response.status === 200) {
-        localStorage.removeItem('accessToken');
-        isLoggedIn = false;  // 로그아웃 했으므로 isLoggedIn을 false로 설정
-        updateButtonVisibility();
-        alert('로그아웃 성공');
+    if (response.status === 200) {
+      localStorage.removeItem('accessToken');
+      isLoggedIn = false; // 로그아웃 했으므로 isLoggedIn을 false로 설정
+      updateButtonVisibility();
+      alert('로그아웃 성공');
     }
   } catch (error) {
-      handleResponseError(error);
+    handleResponseError(error);
   }
 }
 
-
-// 로그인 함수
-async function login() {
+export async function login() {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
 
   try {
-      const response = await axios.post('http://localhost/player/login/', {
-          email: email,
-          password: password
-      });
+    const response = await axios.post('http://localhost/player/login/', {
+      email: email,
+      password: password,
+    });
 
-      if (response.status === 200 && response.data && response.data.access) {
-          // 로그인 성공 시 accessToken을 localStorage에 저장
-          localStorage.setItem('accessToken', response.data.access);
-          isLoggedIn = true;
-          updateButtonVisibility();
-          alert('로그인 성공');
-          document.location.href = '../index.html';
-      } else {
-          alert('로그인 실패');
-      }
+    if (response.status === 200 && response.data && response.data.access) {
+      // 로그인 성공 시 accessToken을 localStorage에 저장
+      localStorage.setItem('accessToken', response.data.access);
+      isLoggedIn = true;
+      updateButtonVisibility();
+      alert('로그인 성공');
+      document.location.href = '../index.html';
+    } else {
+      alert('로그인 실패');
+    }
   } catch (error) {
     if (error.response && error.response.data) {
-        console.log(error.response.data);
+      console.log(error.response.data);
     } else {
-        console.log(error);
+      console.log(error);
     }
     alert('로그인 실패');
   }
