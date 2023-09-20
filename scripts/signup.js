@@ -10,7 +10,7 @@ async function signup() {
 
     try {
         // Replace with your actual API endpoint
-        const response = await fetch('https:// aws url /signup', {
+        const response = await fetch('https://localhost/player/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
