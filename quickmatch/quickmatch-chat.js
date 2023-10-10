@@ -32,7 +32,7 @@ document.querySelector('#todetail_btn').addEventListener('click', function(e){
 connectWebSocket();
 
 function connectWebSocket(){
-    const chatSocket = new WebSocket(`ws://exercisehub.xyz/ws/quickmatch/${meeting_id}/room/?token=${jwttoken}&rcc=${reconnectCounter}`);
+    const chatSocket = new WebSocket(`ws://www.exercisehub.xyz/ws/quickmatch/${meeting_id}/room/?token=${jwttoken}&rcc=${reconnectCounter}`);
 
     document.querySelector('#send_btn').addEventListener('click', sendMessage);
     document.querySelector('#leave_btn').addEventListener('click', function(){
@@ -87,7 +87,7 @@ function connectWebSocket(){
         const messageInput = document.querySelector('#send_input');
         const message = messageInput.value;
     
-        await axios.get(`https://exercisehub.xyz/player/check/email`, {
+        await axios.get(`https://www.exercisehub.xyz/player/check/email`, {
             headers:{
                 'Authorization': `Bearer ${jwttoken}`
             }
@@ -151,7 +151,7 @@ function gotoDetailPage(){
 }
 
 async function getemail(){
-    axios.get('https://exercisehub.xyz/player/check/email/',{
+    axios.get('https://www.exercisehub.xyz/player/check/email/',{
     headers:{
             "Authorization": `Bearer ${jwttoken}`
         }
