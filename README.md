@@ -4,11 +4,12 @@
 ## Welcome!
 XHub 의 주요 기능들을 테스트 해 볼 수 있는 클라이언트 페이지입니다.
 
-## 초기 설정
-아래의 배포 클라이언트 주소로 진입해서 테스트를 진행 할 수 있습니다.
+## 테스트 진행 방법
+XHub-client repository 를 clone 또는 다운로드 받으신 후, index.html 에서 Live Sever를 실행하여 진입합니다.
 
-- [클라이언트 주소](https://exercisehub.github.io/XHub-Client/)
-- [API 서버 주소](54.248.217.183)
+또는, live server 실행 후 [다음의 주소](http://127.0.0.1:5500/index.html)로 진입하면 실행이 가능합니다.
+
+[[API 문서]](54.248.217.183/swagger)
 
 ## 용도
 이 클라이언트 에서 할 수 있는 주요 사항들은 다음과 같습니다.
