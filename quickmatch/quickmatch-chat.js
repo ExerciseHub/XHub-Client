@@ -87,7 +87,7 @@ function connectWebSocket(){
         const messageInput = document.querySelector('#send_input');
         const message = messageInput.value;
     
-        await axios.get(`https://www.exercisehub.xyz/player/check/email`, {
+        await axios.get(`http://54.248.217.183/player/check/email`, {
             headers:{
                 'Authorization': `Bearer ${jwttoken}`
             }
@@ -151,7 +151,7 @@ function gotoDetailPage(){
 }
 
 async function getemail(){
-    axios.get('https://www.exercisehub.xyz/player/check/email/',{
+    axios.get('http://54.248.217.183/player/check/email/',{
     headers:{
             "Authorization": `Bearer ${jwttoken}`
         }
